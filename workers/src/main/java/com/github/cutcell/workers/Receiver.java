@@ -11,7 +11,7 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 @RequiredArgsConstructor
-@RabbitListener(queues = "#{@appProps.queueName}")
+@RabbitListener(queues = "${app.queueName}")
 @Setter
 @Slf4j
 public class Receiver {
@@ -33,7 +33,7 @@ public class Receiver {
 
     private void doWork() {
         try {
-            Thread.sleep(new Random().nextInt(appProps.getWorkMaxDuration()));
+            Thread.sleep(new Random().nextInt((int) appProps.getWorkMaxDuration()));
         } catch (InterruptedException e) {
             log.error("Interrupted", e);
         }
