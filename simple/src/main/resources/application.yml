@@ -1,0 +1,11 @@
+spring:
+  rabbitmq:
+    host: @rabbitmq.host@
+
+app:
+  emitNum: 10
+
+logging:
+  level:
+    root: info
+    com.github.cutcell.simple: debug
