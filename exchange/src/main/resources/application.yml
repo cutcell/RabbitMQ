@@ -1,0 +1,13 @@
+spring:
+  rabbitmq:
+    host: @rabbitmq.host@
+
+logging:
+  level:
+    root: info
+    com.github.cutcell.exchange: debug
+
+app:
+  fanoutName: my-fanout
+  emitsNum: 20
+  workMaxDuration: 300ms
