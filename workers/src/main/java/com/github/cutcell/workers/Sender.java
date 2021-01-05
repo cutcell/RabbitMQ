@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class Sender {
 
-    private static final String MESSAGE_TEMPLATE = "Work_%d";
+    private static final String MESSAGE_TEMPLATE = "Job_%d";
 
     private final AppProps appProps;
     private final RabbitTemplate rabbitTemplate;

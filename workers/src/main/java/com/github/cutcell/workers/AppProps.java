@@ -1,27 +1,42 @@
 package com.github.cutcell.workers;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.ConstructorBinding;
+import org.springframework.boot.convert.DurationUnit;
 import org.springframework.validation.annotation.Validated;
 
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
 
 @ConfigurationProperties("app")
-@Getter
-@Setter
+@ConstructorBinding
+@RequiredArgsConstructor
 @Validated
 public class AppProps {
 
     @NotBlank
-    private String queueName;
+    private final String queueName;
 
     @Min(1)
-    private int emitNum;
+    private final int emitNum;
 
-    @Min(100)
-    @Max(30000)
-    private long workMaxDuration;
+    @NotNull
+    @DurationUnit(ChronoUnit.MILLIS)
+    private final Duration workMaxDuration;
+
+    public String getQueueName() {
+        return queueName;
+    }
+
+    public int getEmitNum() {
+        return emitNum;
+    }
+
+    public Duration getWorkMaxDuration() {
+        return workMaxDuration;
+    }
 }

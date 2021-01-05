@@ -5,7 +5,7 @@ spring:
 app:
   queueName: workers
   emitNum: 10
-  workMaxDuration: 5000
+  workMaxDuration: 5000ms
 
 logging:
   level:

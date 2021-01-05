@@ -33,7 +33,7 @@ public class Receiver {
 
     private void doWork() {
         try {
-            Thread.sleep(new Random().nextInt((int) appProps.getWorkMaxDuration()));
+            Thread.sleep(new Random().nextInt((int) appProps.getWorkMaxDuration().toMillis()));
         } catch (InterruptedException e) {
             log.error("Interrupted", e);
         }
