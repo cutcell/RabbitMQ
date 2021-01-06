@@ -1,0 +1,11 @@
+spring:
+  rabbitmq:
+    host: @rabbitmq.host@
+
+app:
+  exchangeName: my-direct
+
+logging:
+  level:
+    root: info
+    com.github.cutcell.routing: debug
